@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact / Hire Me</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      padding: 20px;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      resize: none;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .success {
+      color: green;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="contactForm">
+  <h2>Contact / Hire Me</h2>
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="message">Message</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Send</button>
+  <div class="success" id="responseMsg"></div>
+</form>
+
+<script>
+  const TOKEN = '7572714464:AAGhDqvPY5Pz3pMwNjS3aIsmsdC3u5nO94g';
+  const CHAT_ID = '7141301127';
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const text = `📩 *Contact Form Submission*\n\n👤 Name: ${name}\n📧 Email: ${email}\n💬 Message: ${message}`;
+    
+    fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: text,
+        parse_mode: "Markdown"
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.ok) {
+        document.getElementById("responseMsg").textContent = "Pesan berhasil dikirim!";
+        document.getElementById("contactForm").reset();
+      } else {
+        document.getElementById("responseMsg").textContent = "Gagal mengirim pesan.";
+      }
+    })
+    .catch(err => {
+      document.getElementById("responseMsg").textContent = "Terjadi kesalahan saat mengirim.";
+    });
+  });
+</script>
+
+</body>
+</html>
