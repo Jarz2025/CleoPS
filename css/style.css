@@ -1,1 +1,252 @@
+/* Base Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
 
+/* Navigation */
+.nav-container {
+  @apply flex items-center justify-between px-6 py-4 border-b border-gray-800 sticky top-0 bg-[#121212] z-50;
+}
+
+.logo-img {
+  @apply h-10 w-auto shake-animation;
+}
+
+.logo-text {
+  @apply text-yellow-500 font-bold text-xl;
+}
+
+.nav-links {
+  @apply flex space-x-6 text-sm;
+}
+
+.nav-links a {
+  @apply hover:text-yellow-500 transition;
+}
+
+/* Hero Section */
+.hero-section {
+  @apply text-center px-4 py-16 md:py-24 fade-in;
+}
+
+.hero-title {
+  @apply text-4xl md:text-5xl font-extrabold mb-4;
+}
+
+.hero-text {
+  @apply max-w-2xl mx-auto text-sm md:text-base text-white/80;
+}
+
+/* Tutorial Section */
+.tutorial-section {
+  @apply px-6 py-12 md:py-16 bg-[#1a1a1a];
+}
+
+.tutorial-container {
+  @apply max-w-4xl mx-auto;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-center mb-6 underline text-white;
+}
+
+.tutorial-subtitle {
+  @apply text-center text-yellow-500 mb-8;
+}
+
+.app-buttons-container {
+  @apply flex flex-wrap justify-center gap-3 mb-8;
+}
+
+.tutorial-note {
+  @apply text-xs text-red-400 italic text-center mt-6;
+}
+
+/* Features Section */
+.features-section {
+  @apply px-6 py-12 md:py-16 relative overflow-hidden;
+}
+
+.features-marquee {
+  @apply absolute inset-0 overflow-hidden;
+}
+
+.slide-right {
+  @apply absolute top-1/2 left-0 w-full whitespace-nowrap text-yellow-500 text-opacity-20 text-2xl font-bold;
+  animation: slideRight 15s linear infinite;
+}
+
+.features-content {
+  @apply relative z-10;
+}
+
+.features-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto;
+}
+
+/* About Section */
+.about-section {
+  @apply px-6 py-12 md:py-16 bg-[#1a1a1a];
+}
+
+.about-container {
+  @apply max-w-4xl mx-auto;
+}
+
+.about-content {
+  @apply flex flex-col md:flex-row gap-8 items-center;
+}
+
+.about-image-container {
+  @apply md:w-1/2 shake-animation;
+}
+
+.about-image {
+  @apply w-full rounded-lg shadow-lg;
+}
+
+.about-text-container {
+  @apply md:w-1/2;
+}
+
+.about-card {
+  @apply bg-[#222] p-6 rounded-lg;
+}
+
+/* Team Section */
+.teams-section {
+  @apply px-6 py-12 md:py-16;
+  text-align: center;
+}
+
+.team-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-slider {
+  display: flex;
+  width: max-content;
+  gap: 3rem;
+  animation: teamSlideLoop 25s linear infinite;
+  align-items: center;
+}
+
+.team-slider .team-member {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* Testimonials */
+.testimonials-section {
+  @apply px-6 py-12 md:py-16 bg-[#1a1a1a];
+  text-align: center;
+}
+
+.testimonials-container {
+  @apply max-w-4xl mx-auto overflow-hidden;
+}
+
+.testimonial-slider {
+  display: flex;
+  animation: testimonialCarousel 30s linear infinite;
+}
+
+.testimonial-item {
+  flex: 0 0 100%;
+  text-align: center;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+/* Community Section */
+.community-section {
+  @apply px-6 py-12 md:py-16;
+}
+
+.community-container {
+  @apply max-w-4xl mx-auto text-center;
+}
+
+.community-subtitle {
+  @apply text-yellow-500 mb-8;
+}
+
+.community-links {
+  @apply flex flex-wrap justify-center gap-4 mb-8;
+}
+
+/* Footer */
+.footer {
+  @apply bg-[#121212] py-6 text-center text-xs;
+}
+
+.footer-container {
+  @apply max-w-4xl mx-auto px-4;
+}
+
+.footer-note {
+  @apply text-yellow-500 text-[10px] mt-1;
+}
+
+/* WhatsApp Float */
+.whatsapp-float {
+  @apply fixed bottom-6 right-6 bg-[#25D366] hover:bg-[#20BD5A] rounded-full p-3 shadow-lg flex items-center justify-center transition shake-animation;
+}
+
+.whatsapp-float i {
+  @apply text-white text-2xl;
+}
+
+/* Animations */
+@keyframes shake {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-5px) rotate(1deg); }
+}
+
+@keyframes slideRight {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes teamSlideLoop {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes testimonialCarousel {
+  0%, 20% { transform: translateX(0); }
+  25%, 45% { transform: translateX(-100%); }
+  50%, 70% { transform: translateX(-200%); }
+  75%, 95% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+
+/* Utility Classes */
+.shake-animation {
+  animation: shake 0.5s ease-in-out infinite alternate;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+.app-instructions {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.app-instructions.show {
+  max-height: 1000px;
+}
