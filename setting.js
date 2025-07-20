@@ -100,10 +100,10 @@ window.settings = {
   ],
 
   links: {
-    discord: "https://discord.gg/rorps",
+    discord: "https://jarz2025.github.io/CleoPS/error.html",
     whatsapp: "https://chat.whatsapp.com/FqzaN64ynXNIxq2eos5NAI?mode=r_c",
-    tiktok: "https://tiktok.com/@rorps",
-    youtube: "https://youtube.com/rorps"
+    tiktok: "https://jarz2025.github.io/CleoPS/error.html",
+    youtube: "https://jarz2025.github.io/CleoPS/error.html"
   },
 
   serverStatus: {
