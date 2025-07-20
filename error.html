@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>404 Not Found</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 5rem;
+      margin: 0;
+    }
+    h2 {
+      margin: 10px 0;
+    }
+    .code {
+      font-size: 1.5rem;
+      color: #dc3545;
+      margin-top: 20px;
+      background: #fff3f3;
+      padding: 10px 20px;
+      border: 1px solid #f5c6cb;
+      border-radius: 5px;
+    }
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    .footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>404</h1>
+  <h2>Oops! Page not found.</h2>
+  <div class="code" id="errorCode">Code: </div>
+
+  <div class="footer">
+    <p>&copy; 2025 jar copyright</p>
+    <p>Order website? Chat di <a href="https://wa.me/62895339463868" target="_blank">wa.me/62895339463868</a></p>
+  </div>
+
+  <script>
+    function generateCode(length) {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let code = '';
+      for (let i = 0; i < length; i++) {
+        code += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return code;
+    }
+
+    document.getElementById("errorCode").textContent += generateCode(9);
+  </script>
+</body>
+</html>
